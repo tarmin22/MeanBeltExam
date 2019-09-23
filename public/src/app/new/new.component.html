@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="col-4 mx-auto">
+    <h3>Pet Shelter</h3>
+    <h5>Know of a pet needing a home</h5>
+    <a [routerLink]="['/']" class="btn btn-primary">Home</a>
+
+    <form (submit)="onSubmit()">
+      <!-- use the json pipe to see how newTask changes in real time -->
+      <p>{{ newTask | json }} </p>
+      <div class="form-group">
+        <!-- <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
+        
+                    <div *ngIf="title.errors.required">
+                      Title is required.
+                    </div>
+                    <div *ngIf="title.errors.minlength">
+                      Title must be at least 4 characters long.
+                    </div>
+        
+        
+                  </div> -->
+
+        <div *ngFor="let error of errors">
+          <p class="text-danger">{{error}}</p>
+        </div>
+
+        <label>Pet name:</label>
+        <input type="text" class="form-control" name="newPet.name" [(ngModel)]="newPet.name">
+        <!-- <input type="text" required minlength="4" class="form-control" name="newTask.title"
+                    [(ngModel)]="newTask.title" #title="ngModel"> -->
+
+      </div>
+      <div class="form-group">
+        <label>Pet Type:</label>
+        <input type="text" class="form-control" name="newPet.kind" [(ngModel)]="newPet.kind">
+        <!-- <input type="text" required minlength="4" class="form-control" name="newTask.title"
+                    [(ngModel)]="newTask.title" #title="ngModel"> -->
+
+      </div>
+
+      <div class="form-group">
+        <label>Description:</label>
+        <input type="text" class="form-control" name="newPet.description" [(ngModel)]="newPet.description">
+        <!-- <input type="text" required minlength="4" class="form-control" name="newTask.title"
+            [(ngModel)]="newTask.title" #title="ngModel"> -->
+
+      </div>
+
+      <p>Skills:</p>
+      <div class="ml-3">
+        <div class="form-group">
+          <label>Skill 1:</label>
+          <input type="text" class="form-control" name="newPet.skill1" [(ngModel)]="newPet.skill1">
+          <!-- <input type="text" required minlength="4" class="form-control" name="newTask.title"
+            [(ngModel)]="newTask.title" #title="ngModel"> -->
+        </div>
+        <div class="form-group">
+          <label>Skill 2:</label>
+          <input type="text" class="form-control" name="newPet.skill2" [(ngModel)]="newPet.skill2">
+          <!-- <input type="text" required minlength="4" class="form-control" name="newTask.title"
+            [(ngModel)]="newTask.title" #title="ngModel"> -->
+        </div>
+        <div class="form-group">
+          <label>Skill 3:</label>
+          <input type="text" class="form-control" name="newPet.skill3" [(ngModel)]="newPet.skill3">
+          <!-- <input type="text" required minlength="4" class="form-control" name="newTask.title"
+            [(ngModel)]="newTask.title" #title="ngModel"> -->
+        </div>
+      </div>
+
+      <a [routerLink]="['/']" class="btn btn-secondary" role="button">Cancel</a>
+      <input class="btn btn-primary btn ml-4" type="submit" value="Add Pet" />
+
+    </form>
+  </div>
+
+</div>

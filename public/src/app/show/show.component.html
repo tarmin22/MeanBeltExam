@@ -1,0 +1,20 @@
+<div class="container">
+  <a [routerLink]="['/']" class="btn btn-primary" role="button">Home</a>
+  <h3>Pet Shelter</h3>
+  <h5>Details about {{petInfo.name}}</h5>
+  <p><span class="font-weight-bolder">Pet Type: </span>{{petInfo.kind}}</p>
+  <p><span class="font-weight-bolder">Description: </span>{{petInfo.description}}</p>
+  <p class="font-weight-bolder">Skills: </p>
+  <div class="ml-4">
+    <p>{{petInfo.skill1}}</p>
+    <p>{{petInfo.skill2}}</p>
+    <p>{{petInfo.skill3}}</p>
+  </div>
+  <p><span class="font-weight-bolder">Likes: </span>{{petInfo.like}}</p>
+
+
+  <!-- <p>Created on: {{authorInfo.createdAt | date}}</p> -->
+  <button *ngIf="showLike == true" type="button" class="btn btn-success ml-3"
+    (click)="onButtonLike(petInfo._id)">Like!</button>
+  <button type="button" class="btn btn-primary ml-3" (click)="onButtonDelete(petInfo._id)">Adopt this pet!</button>
+</div>

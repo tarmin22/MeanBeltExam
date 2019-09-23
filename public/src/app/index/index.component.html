@@ -1,0 +1,33 @@
+<div class="container">
+  <h3>Favorite Authors</h3>
+
+  <a [routerLink]="['/new']">Add an author</a>
+
+  <div class="col-6 mx:auto">
+    <table class="table">
+      <thead class="bg-primary">
+        <tr class="text-light">
+
+          <th scope="col">Name</th>
+          <th scope="col">Action</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let author of authors">
+
+          <td>
+            <a [routerLink]="['/show/', author._id]">{{author.name}}</a>
+          </td>
+          <td>
+            <a [routerLink]="['/edit/', author._id]" class="btn btn-success b" role="button">Edit</a>
+            <!-- <a href="/edit/{{author._id}}" class="btn btn-success b" role="button">Edit</a> -->
+            <button type="button" class="btn btn-danger ml-3" (click)="onButtonDelete(author._id)">Delete</button>
+          </td>
+
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

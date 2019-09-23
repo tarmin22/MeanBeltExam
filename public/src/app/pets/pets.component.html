@@ -1,0 +1,40 @@
+<div class="container">
+  <h3>Pet Shelter</h3>
+  <h5>the pets are looking for a home!</h5>
+
+  <a [routerLink]="['/pets/new']">Add a pet to the shelter</a>
+
+  <div class="col-6 mx:auto">
+    <table class="table">
+      <thead class="bg-primary">
+        <tr class="text-light">
+
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Action</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pet of pets">
+
+          <td>
+            {{pet.name}}
+          </td>
+          <td>{{pet.kind}}</td>
+          <td>
+            <!-- <a [routerLink]="['/edit/', author._id]" class="btn btn-success b" role="button">Edit</a> -->
+            <!-- <a href="/edit/{{author._id}}" class="btn btn-success b" role="button">Edit</a> -->
+            <!-- <a [routerLink]="['/show/', pet._id]" class="btn btn-primary">Details</a> -->
+            <a [routerLink]="['/pets/', pet._id]" class="btn btn-primary">Details</a>
+            <a [routerLink]="['/pets', pet._id,'edit']" class="btn btn-success ml-2" role="button">Edit</a>
+            <!-- <a [routerLink]="['/edit/', pet._id,]" class="btn btn-success ml-2" role="button">Edit</a> -->
+            <!-- <button type="button" class="btn btn-danger ml-3" (click)="onButtonDelete(pet._id)">Delete</button> -->
+          </td>
+
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
